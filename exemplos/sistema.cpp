@@ -9,6 +9,8 @@
 
 int main ()
 {
+system("./fork2");
+/*
  printf("Rodando o comando do shell com a system call system(): Início \n");
  printf("\n\n\n");
  system ("ps -axf | grep sleep");
@@ -17,5 +19,6 @@ int main ()
  //system ("firefox &");
  system ("ps -axf | grep sleep");
  printf("Rodando o comando ps com system(): Fim \n");
+ */
  exit (0);
 }
