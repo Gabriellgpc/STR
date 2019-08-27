@@ -1,0 +1,9 @@
+Vers√o 1:
+Jogo similar ao jogo da toupeira (Mole Hammer),
+os LEDs representam as "toupeiras".
+O usuario tem 30s para bater o m√ximo numero de leds.
+Cada LED ficara acesso por t segundos, se o usuario aperte o botao corres-
+pondente 1 ponto ser√° contado, caso contr√rio apenas n√o ser√° contabilizado.
+
+
+
