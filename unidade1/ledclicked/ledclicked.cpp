@@ -1,6 +1,5 @@
 #include <BlackGPIO.h>
 #include <iostream>
-// #include <time>
 #include <sys/time.h>
 #include <stdlib.h>     /* srand, rand */
 #include <unistd.h>
@@ -33,6 +32,7 @@ static BlackGPIO button[] = { BlackGPIO(buttons_gpios[0], input),
 double timer(void);
 void menu();
 void game(double t_hold, time_t t_wait, time_t t_game);
+void fx(unsigned int it);
 
 int main(int argc, char **argv){
   unsigned int k;  
@@ -41,7 +41,8 @@ int main(int argc, char **argv){
   while(1){
     menu();
 	cin >> k;
-    
+    system("clear");
+
 	switch(k){
     case 0: //facil
 		game(2.0, 500, TIME);
@@ -58,7 +59,10 @@ int main(int argc, char **argv){
 	case 4: //aventura
 		game(0.3, 50, TIME);
     break;
-	case 5: //sair
+	case 5: //fx
+		fx(30);
+	break;
+	case 6: //sair
 		cout << "Vlw, flws!\n";
 		exit(0);
 	break;
@@ -130,5 +134,15 @@ void menu(){
 	cout << "2 - Modo Dificil\n";
 	cout << "3 - Modo Insano\n";
 	cout << "4 - Modo Aventura\n";
-	cout << "5 - Sair\n";
+	cout << "5 - fx\n";
+	cout << "6 - Sair\n";
+}
+void fx(unsigned int it){
+	for(unsigned int n = 0; n < it;  n++){
+		for(unsigned int i = 0; i < N;  i++){
+			led[i].setValue(high);
+			usleep(100*1000);
+			led[i].setValue(low);
+		}
+	}
 }
