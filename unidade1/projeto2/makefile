@@ -7,6 +7,4 @@ LDFLAGS = -L ${BASEDIR}/lib
 
 LDLIBS =	-lBlacklib
 
-all:	ledclicked
-
-ledclicked:	ledclicked.cpp
+all:	adc
