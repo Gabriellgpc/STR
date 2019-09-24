@@ -65,7 +65,7 @@ void *thread_function(void *arg) {
         }
         else {
 			printf("THREAD() --> Vai dormir por 1 segundo\n");  
-			sleep(1);
+			sleep(2);
         }
     }
 	

@@ -28,7 +28,7 @@ void *thread_function(void *arg);
 
 char message[] = "Alô, Mundo cruel!";
 
-int main() {
+void main() {
     int res;
  
     pthread_t a_thread;
@@ -51,7 +51,7 @@ int main() {
     sleep(5);
     printf("MAIN()--> O thread_join retornou:   %s\n", (char *)thread_result);
     printf("MAIN()--> Message agora é: %s\n\n", message);
-    exit(EXIT_SUCCESS);
+   // exit(EXIT_SUCCESS);
 }
 
 void *thread_function(void *arg) {
@@ -60,5 +60,6 @@ void *thread_function(void *arg) {
     sleep(3);
     printf("THREAD--> Acordei e agora vou terminar\n");
     strcpy(message, "Estou indo embora! (escrito pela thread)");
+	exit(EXIT_SUCESS);
     pthread_exit((void *) "Obrigado pelo seu tempo de CPU");
 }

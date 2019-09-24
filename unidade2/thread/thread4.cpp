@@ -16,6 +16,9 @@
 // Função auxiliar da thread
 void* funcaoHelper(void* idThread) {
   sleep(3);
+  while(true)
+  {
+  }
   printf("Finalizar a thread: %d\n", idThread);
   //Finalizar com o código de retorno igual ao idThread
   pthread_exit((void *) idThread);
