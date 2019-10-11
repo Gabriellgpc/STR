@@ -7,4 +7,4 @@ LDFLAGS = -L ${BASEDIR}/lib
 
 LDLIBS =	-lBlacklib
 
-all:	adc
+all:	concorrencia
