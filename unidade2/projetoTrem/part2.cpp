@@ -11,7 +11,7 @@ void *trem1_function(void *arg);
 void *trem2_function(void *arg);
 void *trem3_function(void *arg);
 pthread_mutex_t m1; /*Protecao para L */
-pthread_mutex_t m2; 
+pthread_mutex_t m2;
 
 int main() {
     pthread_t th_trem1, th_trem2,th_trem3;
@@ -47,8 +47,8 @@ int main() {
         exit(EXIT_FAILURE);
     }
 
-    
-    system("clear");		
+
+    system("clear");
 
     printf("\nMAIN() --> Esperando a thread terminar...\n");
     res = pthread_join(th_trem1, NULL);
@@ -56,12 +56,12 @@ int main() {
         perror("Jun��o da Thread 1 falhou");
         exit(EXIT_FAILURE);
     }
-    
+
     res = pthread_join(th_trem2, NULL);
     if (res != 0) {
         perror("Jun��o da Thread 2 falhou");
         exit(EXIT_FAILURE);
-    }	
+    }
 
     printf("MAIN() --> Thread foi juntada com sucesso\n");
     pthread_mutex_destroy(&m1);
@@ -70,8 +70,8 @@ int main() {
 
 
 void L(int tremID, int trilho){
-   printf("Sou o trem %d e estou no trilho %d\n", tremID, trilho); 
-   fflush(stdout);	
+   printf("Sou o trem %d e estou no trilho %d\n", tremID, trilho);
+   fflush(stdout);
 }
 
 void *trem1_function(void *arg){
@@ -86,15 +86,14 @@ void *trem1_function(void *arg){
    sleep(1);
    pthread_mutex_unlock(&m1);
    L(1,4);
-   sleep(1); 	
+   sleep(1);
  }
 }
-
 
 void *trem2_function(void *arg){
 while(true)
 {
-   pthread_mutex_lock(&m2);	
+   pthread_mutex_lock(&m2);
    L(2,5);
    sleep(1);
    pthread_mutex_unlock(&m2);
@@ -105,7 +104,7 @@ while(true)
    sleep(1);
    pthread_mutex_unlock(&m1);
    L(2,8);
-   sleep(1); 	
+   sleep(1);
 }
 }
 
@@ -121,7 +120,6 @@ while(true)
    sleep(1);
    pthread_mutex_unlock(&m2);
    L(3,12);
-   sleep(1); 	
+   sleep(1);
 }
 }
-
